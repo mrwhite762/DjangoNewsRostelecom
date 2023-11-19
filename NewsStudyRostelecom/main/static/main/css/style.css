@@ -1,0 +1,101 @@
+body{
+    background-color:#FFFFFF;
+}
+aside{  /* стиль боковой панели навигации */
+    float: left; /* позиция - слева */
+    background: #212529;/* цвет фона*/
+    width: 25%; /*ширина в % от экрана, можно указать в px */
+    padding: 1%; /*отступы */
+    height: 100vh; /* высота боковой панели - 100% от видимой высоты экрана*/
+    color: white; /* цвет текста */
+    border-right: 5px solid #000000; /* стиль границы панели */
+}
+a{
+    text-decoration:none;
+    color:white;
+}
+/*a:link - просто ссылка
+a:visited - посещенная
+a:hover - наведённая
+a:active - нажатая
+*/
+
+aside img{
+    padding: 0px 10px;
+    width: auto;
+    height: 30px;
+    float: left;
+    border-radius:5%;
+}
+
+span.logo{
+    padding: 10px;
+    font-size: 30px;
+    font-weight: bold;
+    position:relative;
+    top: -5px;
+}
+aside{
+    padding: 35px 25px;
+    background: #212529;
+    width: 75%;
+}
+aside a{
+    color: #FFFFFF;
+    outline: none;
+    text-decoration: none;
+    padding: 5px 1px;
+}
+aside li{
+    padding: 5px 17px 0;
+}
+aside ul li:hover, aside ul li a:hover{
+    color: #0D6EFD;
+    border-radius:3px;
+    transform: scale(1.025);
+    transition: 0.15s;
+}
+
+body .single_news{
+    margin-top:15px;
+    float: left;
+    width: 90%;
+}
+
+.alert-info{
+    float:left;
+    clear:both;
+    width:500px;
+    margin: 10px 26%;
+    text-align:center;
+}
+
+.link-active {
+  color: #0D6EFD;
+}
+
+.d-lg-block{
+    float: inline-start;
+    white-space:nowrap;
+    border-right: none;
+    overflow-x:auto;
+}
+.menu-icon{
+    float: inline-start;
+    padding: 5px 10px 0 0;
+    border-right: 5px;
+}
+
+/* Если размер экрана >=1340px то текст не переносится по словам */
+@media (min-width: 1340px) {
+  .responsive-title {
+    white-space:nowrap;
+  }
+}
+/* Если размер экрана <1340px то текст переносится по словам - тег white-space */
+@media (max-width: 1339.98px) {
+   .responsive-title{
+    white-space:normal;
+  }
+}
+// подробнее про hover-эффекты: https://www.w3schools.com/cssref/sel_hover.php

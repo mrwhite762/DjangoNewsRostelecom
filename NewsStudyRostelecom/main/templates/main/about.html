@@ -1,0 +1,35 @@
+{% extends 'main/base_template.html' %}
+{% load static %}
+{% load bootstrap5 %}
+{% bootstrap_css %}
+{% bootstrap_javascript %}
+
+{% block title %} about {% endblock %}
+
+{% block content %}
+<div class="container-fluid" style="margin-top:30px;">
+<div class="padding">
+    <div class="col-md-8">
+        <!-- Column -->
+        <div class="card border-dark border-4"> <img class="card-img-top" src="https://p0.zoon.ru/preview/CUvzVopBvvOlqA4WTRr6FA/2400x1500x75/1/9/a/original_5791219640c088286e8ba349_5a42e2c908749.jpg" alt="Card image cap">
+            <div class="card-body little-profile text-center">
+                <h3 class="m-b-0">Новости IT</h3>
+                <p>Мы выкладываем интересные новости в сфере IT, подпишись чтобы не пропустить</p> <a href="javascript:void(0)" class="m-t-10 waves-effect waves-dark btn btn-primary btn-md btn-rounded" data-abc="true">Подписаться</a>
+                <div class="row text-center m-t-20">
+                    <div class="col-lg-4 col-md-4 m-t-20">
+                        <h3 class="m-b-0 font-light">3</h3><small>Новости</small>
+                    </div>
+                    <div class="col-lg-4 col-md-4 m-t-20">
+                        <h3 class="m-b-0 font-light">10</h3><small>Человек уже подписалось</small>
+                    </div>
+                    <div class="col-lg-4 col-md-4 m-t-20">
+                        <h3 class="m-b-0 font-light">13</h3><small>Еждедневных пользователей</small>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+</div>
+{% endblock %}
+
