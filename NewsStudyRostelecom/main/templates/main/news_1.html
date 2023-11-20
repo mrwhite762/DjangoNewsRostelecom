@@ -1,22 +1,18 @@
-<!DOCTYPE html>
 {% extends 'main/base_template.html' %}
 {% load static %}
 {% load bootstrap5 %}
 {% block title %} Новость 1 {% endblock %}
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Title</title>
+{% block head %}
     {% bootstrap_css %}
     {% bootstrap_javascript %}
     <link rel="stylesheet" href="{% static 'main/css/for_news123.css' %}">
+{% endblock %}
 
-</head>
-<body>
+
 {% block content %}
 
 <div class="text-center" style="margin-top:30px;">
-<div class="profile-card card border-dark mb-3 border-4" style="max-width: 55rem;">
+<div class="card border-dark mb-3 border-4" style="max-width: 55rem;">
   <img src="{% static 'main/img/News_icon1.jpg' %}" class="card-img-top" alt="image">
   <div class="card-body text-dark bg-light bg-gradient">
     <h4 class="card-title">Китай запускает самый быстрый в мире интернет</h4>
@@ -37,5 +33,3 @@
 </div>
 
 {% endblock %}
-</body>
-</html>

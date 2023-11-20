@@ -1,9 +1,9 @@
-.wrapper{display: flex;justify-content: center;align-items: center;height: 100vh;background:#000}
+.wrapper{display: flex;justify-content: center;align-items: center;height: 100vh;background:#212529} /*#000*/
 .profile{position: relative;width: 300px;
 height: 350px;background-image: url("../img/photo.jpg");
 background-size: cover;cursor: pointer;
-border: 12px;border-top-right-radius: 35px !important;border-radius: 6px}
-.overlay{width: 100%;height: 100%;background:rgba(0,0,0,0.8);border-radius: 12px;cursor: pointer;opacity: 0;transition: all 1s;border-top-right-radius: 35px !important;border-radius: 6px}
+border: 12px;border-radius: 35px !important;border-radius: 6px}
+.overlay{width: 100%;height: 100%;background:rgba(0,0,0,0.8);border-radius: 12px;cursor: pointer;opacity: 0;transition: all 1s;border-radius: 35px !important;border-radius: 6px}
 .profile:hover
 .overlay{opacity: 1}
 .social-icons{display: flex;list-style: none;bottom: 10px;position: absolute;text-align: center;justify-content: center;left: 22px}
