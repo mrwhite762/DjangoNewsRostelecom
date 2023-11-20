@@ -7,7 +7,7 @@
 body {
 	margin: 0;
 	font-family: Roboto, -apple-system, 'Helvetica Neue', 'Segoe UI', Arial, sans-serif;
-	background: #3b4465;
+	background: #212529; /*#3b4465*/
 }
 
 .forms-section {
@@ -271,14 +271,28 @@ body {
 	transition: all .4s ease-in;
 }
 
-.btn-login {
+
+.btn-login{
+	background: #212529;  /*#a7e245*/
 	color: #fbfdff;
-	background: #a7e245;
+	transform: translateX(-30%);
+}
+
+
+.btn-login:hover {
+	background: #212529;  /*#a7e245*/
+	color: #0000ff;
 	transform: translateX(-30%);
 }
 
 .btn-signup {
+	background: #212529;  /*#a7e245*/
 	color: #fbfdff;
-	background: #a7e245;
+	transform: translateX(30%);
+}
+
+.btn-signup:hover {
+	background: #212529;  /*#a7e245*/
+	color: #0000ff;
 	transform: translateX(30%);
 }

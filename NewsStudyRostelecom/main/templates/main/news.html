@@ -1,52 +1,51 @@
-<!DOCTYPE html>
 {% extends 'main/base_template.html' %}
 {% load static %}
 {% load bootstrap5 %}
 {% block title %} List News {% endblock %}
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Title</title>
-</head>
-<body>
-    {% block content %}
-    <div class="container-fluid">
-            <div class="row">
-                <div class="text-center" style="margin-top:30px;">
-                        <h1 >Cписок новостей</h1>
-                </div>
-            </div>
-            <table class="table table-dark table-hover table-sm">
-                      <thead>
-                        <tr>
-                          <th scope="col">№</th>
-                          <th scope="col">Заголовок новости</th>
-                          <th scope="col">Краткое описание</th>
-                          <th scope="col">Каритинка к новости</th>
-                        </tr>
-                      </thead>
-                      <tbody>
-                        <tr>
-                          <th scope="row">1</th>
-                          <td><a href="../news_1/">Китай запускает самый быстрый в мире интернет</a></td>
-                          <td>Китай утверждает что разработал самый быстрый в мире интернет со скоростью 1,2 терабита в секунду</td>
-                          <td><img src="{% static 'main' %}/img/News_icon1.jpg" width="150" height="150" alt="Image"></td>
-                        </tr>
-                        <tr>
-                          <th scope="row">2</th>
-                          <td><a href="../news_2/">На Госуслугах появится информация о зарегистрированных на гражданина SIM-картах</a></td>
-                          <td>Минцифры РФ предлагает добавить в Госуслуги раздел с данными о зарегистрированных SIM-картах на пользователей</td>
-                          <td><img src="{% static 'main' %}/img/News_icon2.jpg" width="150" height="150" alt="Image"></td>
-                        </tr>
-                        <tr>
-                          <th scope="row">3</th>
-                          <td><a href="../news_3/">Купить ChatGPT Plus теперь нельзя из-за безумного спроса</a></td>
-                          <td>Глава OpenAI Сэм Альтман заявил, что спрос на платную версию ChatGPT превысил возможности компании</td>
-                          <td><img src="{% static 'main' %}/img/News_icon3.jpg" width="150" height="150" alt="Image"></td>
-                        </tr>
-                      </tbody>
-                    </table>
+{% block head %}
+    {% bootstrap_css %}
+    <link rel="stylesheet" href="{% static 'main/css/news.css' %}">
+{% endblock %}
+
+{% block content %}
+<div class="container-fluid">
+    <div class="row">
+        <div class="text-center" style="margin-top:30px;">
+            <h1>Cписок новостей</h1>
+        </div>
     </div>
-    {% endblock %}
-</body>
-</html>
+    <table class="table table-bordered border border-4 border-dark table-dark table-hover table-sm" style="margin: auto;">
+        <thead>
+        <tr>
+            <th scope="col">№</th>
+            <th scope="col">Заголовок новости</th>
+            <th scope="col">Краткое описание</th>
+            <th scope="col">Каритинка к новости</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr>
+            <th scope="row">1</th>
+            <td><a href="../news_1/">Китай запускает самый быстрый в мире интернет</a></td>
+            <td>Китай утверждает что разработал самый быстрый в мире интернет со скоростью 1,2 терабита в секунду</td>
+            <td><img src="{% static 'main' %}/img/News_icon1.jpg" width="150" height="150" alt="Image"></td>
+        </tr>
+        <tr>
+            <th scope="row">2</th>
+            <td><a href="../news_2/">На Госуслугах появится информация о зарегистрированных на гражданина SIM-картах</a>
+            </td>
+            <td>Минцифры РФ предлагает добавить в Госуслуги раздел с данными о зарегистрированных SIM-картах на
+                пользователей
+            </td>
+            <td><img src="{% static 'main' %}/img/News_icon2.jpg" width="150" height="150" alt="Image"></td>
+        </tr>
+        <tr>
+            <th scope="row">3</th>
+            <td><a href="../news_3/">Купить ChatGPT Plus теперь нельзя из-за безумного спроса</a></td>
+            <td>Глава OpenAI Сэм Альтман заявил, что спрос на платную версию ChatGPT превысил возможности компании</td>
+            <td><img src="{% static 'main' %}/img/News_icon3.jpg" width="150" height="150" alt="Image"></td>
+        </tr>
+        </tbody>
+    </table>
+</div>
+{% endblock %}
