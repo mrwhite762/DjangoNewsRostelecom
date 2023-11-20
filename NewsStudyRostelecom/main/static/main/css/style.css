@@ -38,7 +38,7 @@ span.logo{
 aside{
     padding: 35px 25px;
     background: #212529;
-    width: 75%;
+    width: 100%;  /*width: 75%;*/
 }
 aside a{
     color: #FFFFFF;
@@ -58,6 +58,8 @@ aside ul li:hover, aside ul li a:hover{
 
 body .single_news{
     margin-top:15px;
+    margin-left:auto;
+    margin-right:auto;
     float: left;
     width: 90%;
 }
