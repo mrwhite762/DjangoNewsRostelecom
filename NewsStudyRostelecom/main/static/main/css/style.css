@@ -65,6 +65,10 @@ body .single_news{
     width: 90%;
 }
 
+.contact_form{
+    margin: 50px;
+}
+
 .alert-info{
     float:left;
     clear:both;

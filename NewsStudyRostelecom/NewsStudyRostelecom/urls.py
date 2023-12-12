@@ -24,8 +24,20 @@ from django.conf import settings
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('',include('main.urls')),
+    path('news/', include('news.urls')),
+    path('users/', include('users.urls')),
     path('home/', include('home.urls')),
     #htpp://127.0.0.1:8000/
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
 
-urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
+if settings.DEBUG:
+    import debug_toolbar
+    urlpatterns = [
+                      path('__debug/__', include(debug_toolbar.urls)),
+                  ] + urlpatterns
+
+    urlpatterns + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
+# urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
+
+admin.site.site_header = "Панель администрирования новостей"
+admin.site.index_title = "Новости IT"

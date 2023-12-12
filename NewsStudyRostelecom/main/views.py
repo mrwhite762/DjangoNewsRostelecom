@@ -77,8 +77,7 @@ def contacts(request):
 
 def sidebar(request):
     return render(request,'main/sidebar.html')
-def registration(request):
-    return render(request,'main/registration.html')
+
 def user_account(request):
     return render(request,'main/user_account.html')
 def about(request):
