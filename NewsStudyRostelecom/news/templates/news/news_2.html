@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+{% extends 'main/base_template.html' %}
+{% load static %}
+{% load bootstrap5 %}
+{% block title %} News 2 {% endblock %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    {% bootstrap_css %}
+    {% bootstrap_javascript %}
+    <link rel="stylesheet" href="{% static 'main/css/for_news123.css' %}">
+
+</head>
+<body>
+{% block content %}
+
+<div class="text-center" style="margin-top:30px;">
+<div class="card border-dark mb-3 border-4" style="max-width: 55rem; margin-left:auto; margin-right:auto;">
+  <img src="{% static 'main/img/News_icon2.jpg' %}" class="card-img-top" alt="image">
+  <div class="card-body text-dark bg-light bg-gradient">
+    <h4 class="card-title">На Госуслугах появится информация о зарегистрированных на гражданина SIM-картах</h4>
+        <p class="card-text" align="left">
+            <br>Минцифры РФ предлагает добавить в Госуслуги раздел с данными о зарегистрированных SIM-картах на пользователей.
+            <br><br>
+            Сейчас эти данные есть только у операторов связи.
+            <br><br>
+            Инициатива должна помочь людям отслеживать использование их телефонных номеров в мошеннических целях.
+            <br><br>
+            ☝🏻Увидев в Госуслугах номер, который не используется или был нелегально оформлен, абонент сможет его заблокировать.
+        </p>
+    <a href="http://127.0.0.1:8000/news_3/" class="btn btn-primary">Следующая новость</a>
+  </div>
+</div>
+</div>
+
+{% endblock %}
+</body>
+</html>

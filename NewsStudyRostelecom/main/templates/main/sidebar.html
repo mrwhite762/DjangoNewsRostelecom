@@ -6,78 +6,123 @@
 <script src="https://kit.fontawesome.com/a97047fead.js" crossorigin="anonymous"></script>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/css/bootstrap.min.css" rel="stylesheet" >
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/css/bootstrap.min.css" rel="stylesheet">
 <!--скрипты ниже для работы выпадающего меню пользователя-->
-<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js" ></script>
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.min.js" integrity="sha384-Atwg2Pkwv9vp0ygtn1JAojH0nYbwNJLPhwyoVbhoPwBhjQPR5VtM2+xf0Uwh9KtT" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.min.js"
+        integrity="sha384-Atwg2Pkwv9vp0ygtn1JAojH0nYbwNJLPhwyoVbhoPwBhjQPR5VtM2+xf0Uwh9KtT"
+        crossorigin="anonymous"></script>
 
 
 <!--Сделано на основе примеров боковых меню с этой страницы: https://getbootstrap.com/docs/5.0/examples/sidebars/#-->
 
 
-    <aside>
+<aside>
 
-        <!--    Подробнее про flex-классы: https://bootstrap-4.ru/docs/4.0/utilities/flex/-->
-<!--            d-none d-lg-block | Такой класс позвоялет спрятать элементы при отображении на экранах размером меньше lg-->
-            <a href="/" class="d-flex align-items-center mb-3 mb-md-0 me-md-auto text-white text-decoration-none">
-              <img  src="{% static 'main' %}/img/News_icon.png" width="40" height="50">
-              <span class="fs-5 d-none d-lg-block responsive-title">Новости в IT</span>
+    <!--    Подробнее про flex-классы: https://bootstrap-4.ru/docs/4.0/utilities/flex/-->
+    <!--            d-none d-lg-block | Такой класс позвоялет спрятать элементы при отображении на экранах размером меньше lg-->
+    <a href="{% url 'home' %}" class="d-flex align-items-center mb-3 mb-md-0 me-md-auto text-white text-decoration-none">
+        <img src="{% static 'main' %}/img/News_icon.png" width="40" height="50">
+        <span class="fs-5 d-none d-lg-block responsive-title">Новости в IT</span>
+    </a>
+    <hr>
+    <ul class="nav nav-pills flex-column mb-auto">
+        <li class="nav-item">
+            <a href="{% url 'home' %}" {% if request.resolver_match.view_name == '/' %} class="link-active" aria-current="page" {% endif %}>
+            <i class="fa fa-house menu-icon {% if request.path  == '/' %} link-active {% endif %}"></i>
+            <div class="d-none d-lg-block">Главная</div>
             </a>
-            <hr>
-            <ul class="nav nav-pills flex-column mb-auto">
-              <li class="nav-item">
-                  <a href="/" {% if request.path  == '/' %} class="link-active" aria-current="page" {% endif %}>
-                      <i class="fa fa-house menu-icon {% if request.path  == '/' %} link-active {% endif %}" ></i>
-                      <div class="d-none d-lg-block">Главная</div>
-                  </a>
-              </li>
+        </li>
 
-              <li class="nav-item">
-                <a href="/news/" {% if request.path  == '/news/' %} class="link-active" aria-current="page" {% endif %}>
-                    <i class="fa fa-bars menu-icon"></i> <div class="d-none d-lg-block">Все новости</div>
-                </a>
-              </li>
-<!--                <li class="nav-item">-->
-<!--                  <a href="/examples/" {% if request.path  == '/examples/' %} class="link-active" aria-current="page" {% endif %}>-->
-<!--                        <i class="fa fa-hand menu-icon"></i>  <div class="d-none d-lg-block"> Примеры с урока</div>-->
-<!--                    </a>-->
-<!--              </li>-->
-<!--              <li>-->
-<!--                <a href="/home/" {% if request.path  == '/home/' %} class="link-active" aria-current="page" {% endif %}>-->
-<!--                    <i class="fa fa-backward menu-icon""></i>  <div class="d-none d-lg-block">Адаптированный шаблон </div>-->
-<!--                </a>-->
-<!--              </li>-->
-              <li>
-                <a href="#" {% if request.path  == '/search/' %} class="link-active" aria-current="page" {% endif %}>
-                    <i class="fa fa-magnifying-glass menu-icon"></i>   <div class="d-none d-lg-block"> Поиск</div>
+        <li class="nav-item">
+            <a href="{% url 'news_index' %}" {% if request.resolver_match.view_name == 'news_index' %} class="link-active" aria-current="page" {% endif %}>
+            <i class="fa fa-bars menu-icon"></i>
+            <div class="d-none d-lg-block">Все новости</div>
+            </a>
+        </li>
+        <li class="nav-item">
+            <a href="{% url 'news_list' %}" {% if request.resolver_match.view_name == 'news_list' %} class="link-active" aria-current="page" {% endif %}>
+            <i class="fa fa-bars menu-icon"></i>
+            <div class="d-none d-lg-block">Новости 2</div>
+            </a>
+        </li>
+        <!--                <li class="nav-item">-->
+        <!--                  <a href="/examples/" {% if request.path  == '/examples/' %} class="link-active" aria-current="page" {% endif %}>-->
+        <!--                        <i class="fa fa-hand menu-icon"></i>  <div class="d-none d-lg-block"> Примеры с урока</div>-->
+        <!--                    </a>-->
+        <!--              </li>-->
+        <!--              <li>-->
+        <!--                <a href="/home/" {% if request.path  == '/home/' %} class="link-active" aria-current="page" {% endif %}>-->
+        <!--                    <i class="fa fa-backward menu-icon""></i>  <div class="d-none d-lg-block">Адаптированный шаблон </div>-->
+        <!--                </a>-->
+        <!--              </li>-->
+        <li>
+            <a href="#" {% if request.path == '/search/' %} class="link-active" aria-current="page" {% endif %}>
+            <i class="fa fa-magnifying-glass menu-icon"></i>
+            <div class="d-none d-lg-block"> Поиск</div>
 
-                </a>
-              </li>
-<!--              <li>-->
-<!--                <a href="#" {% if request.path  == '/myarticles/' %} class="link-active" aria-current="page" {% endif %}>-->
-<!--                    <i class="fa fa-pen-nib menu-icon"></i>  <div class="d-none d-lg-block"> Мои статьи</div>-->
-<!--                </a>-->
-<!--              </li>-->
-              <li>
-                <a href="/about/" {% if request.path  == '/about/' %} class="link-active" aria-current="page" {% endif %}>
-                  <i class="fa fa-handshake menu-icon"></i>  <div class="d-none d-lg-block"> О сайте</div>
-                </a>
-              </li>
-            </ul>
-            <hr>
+            </a>
+        </li>
+        <li class="nav-item">
+            <a href="/admin/" {% if request.path  == '/admin/' %} class="link-active" aria-current="page" {% endif %}>
+            <i class="fa fa-user menu-icon {% if request.path  == '/admin/' %} link-active {% endif %}" ></i>
+            <div class="d-none d-lg-block">Панель администратора</div>
+            </a>
+        </li>
+        <!--              <li>-->
+        <!--                <a href="#" {% if request.path  == '/myarticles/' %} class="link-active" aria-current="page" {% endif %}>-->
+        <!--                    <i class="fa fa-pen-nib menu-icon"></i>  <div class="d-none d-lg-block"> Мои статьи</div>-->
+        <!--                </a>-->
+        <!--              </li>-->
+        <li>
+            <a href="{% url 'about' %}" {% if request.resolver_match.view_name == '/about/' %} class="link-active" aria-current="page" {% endif %}>
+            <i class="fa fa-handshake menu-icon"></i>
+            <div class="d-none d-lg-block"> О сайте</div>
+            </a>
+        </li>
+    </ul>
+    <hr>
 
+    {% if request.user.id %}  <!-- проверяем аутентификацию-->
+    <div class="dropdown">
+        <button class="btn btn-primary dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown"
+                aria-expanded="false" style="background:#212529;">
+            <img src="{{ request.user.account.account_image.url }}" alt="" width="25" height="25" class="rounded-circle me-2">
+            <div class="d-none d-lg-block"> {{ request.user.username }} </div>
+        </button>
+        <ul class="dropdown-menu " aria-labelledby="dropdownMenuButton1">
+            <li><a class="dropdown-item" href="{% url 'create_article' %}"> Создать статью</a></li>
+            <li><a class="dropdown-item" href="{% url 'user_account' %}"> Мой аккаунт</a></li>
+            <li><hr class="dropdown-divider"></li>
+            <li><a class="dropdown-item" href="{% url 'logout' %}"> Выход</a></li>
+        </ul>
+    </div>
+    {% else %} <!-- ссылки на регистрацию и аутентификацию-->
+                <ul class="nav nav-pills flex-column mb-auto">
+                      <li class="nav-item">
+                          <a href="{% url 'registration' %}" {% if request.resolver_match.view_name  == 'registration' %} class="link-active" aria-current="page" {% endif %}>
+                              <i class="fa fa-user menu-icon"></i>
+                              <div class="d-none d-lg-block">Регистрация</div>
+                          </a>
+                      </li>
+                      <li class="nav-item">
+                          <a href="{% url 'login' %}" {% if request.resolver_match.view_name  == 'login' %}
+                          class="link-active" aria-current="page" {% endif %}>
+                              <i class="fa fa-sign menu-icon {% if request.path  == '/users/login' %}
+                               link-active {% endif %}" ></i>
+                              <div class="d-none d-lg-block">Вход</div>
+                          </a>
+                      </li>
+                </ul>
+    {% endif %}
 
-            <div class="dropdown" >
-              <button class="btn btn-primary dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false" style="background:#212529;">
-                <img src="{% static 'main' %}/img/default.jpg" alt="" width="25" height="25" class="rounded-circle me-2">
-                  <div class="d-none d-lg-block">Пользовательское меню</div>
-              </button>
-              <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
-<!--                <li><a class="dropdown-item" href="#"> Создать статью</a></li>-->
-                <li><a class="dropdown-item" href="http://127.0.0.1:8000/user_account/"> Мой аккаунт</a></li>
-                <li><hr class="dropdown-divider"></li>
-                <li><a class="dropdown-item" href="http://127.0.0.1:8000/registration/"> Вход / Регистрация</a></li>
-              </ul>
-            </div>
+    <br>
+    {% if messages %}
+        {% for message in messages %}
+        <div class="alert alert-{{ message.tags }}">
+            {{ message }}
+        </div>
+        {% endfor %}
+    {% endif %}
 
-    </aside>
+</aside>

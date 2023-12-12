@@ -43,7 +43,12 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'main',
     'home',
+    'news',
+    'users',
     'bootstrap5',
+    'crispy_forms',
+    'crispy_bootstrap5',
+    'debug_toolbar',
 ]
 
 MIDDLEWARE = [
@@ -54,7 +59,9 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    'debug_toolbar.middleware.DebugToolbarMiddleware',
 ]
+INTERNAL_IPS = ['127.0.0.1',]
 
 ROOT_URLCONF = 'NewsStudyRostelecom.urls'
 
@@ -110,9 +117,9 @@ AUTH_PASSWORD_VALIDATORS = [
 # Internationalization
 # https://docs.djangoproject.com/en/4.2/topics/i18n/
 
-LANGUAGE_CODE = 'en-us'
+LANGUAGE_CODE = 'ru' #'en-us'
 
-TIME_ZONE = 'UTC'
+TIME_ZONE = 'Europe/Moscow'
 
 USE_I18N = True
 
@@ -135,3 +142,11 @@ MEDIA_ROOT = os.path.join(BASE_DIR,'media')
 # https://docs.djangoproject.com/en/4.2/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+CRISPY_ALLOWED_TEMPLATES_PACKS = "bootstrap5"
+CRISPY_TEMPLATE_PACK = "bootstrap5"
+
+LOGIN_REDIRECT_URL = '/'
+LOGOUT_REDIRECT_URL = '/'
+
+LOGIN_URL = 'login'
