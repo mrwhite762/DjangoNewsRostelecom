@@ -4,7 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="01659525-c7d5-4527-bd53-d7984de640ad" name="Changes" comment="Версия дз 2 реализует большую часть требований, выполнена к сожалению на сколько успел и находится на доработке" />
+    <list default="true" id="01659525-c7d5-4527-bd53-d7984de640ad" name="Changes" comment="Merge remote-tracking branch 'origin/main'&#10;&#10;# Conflicts:&#10;#&#9;.idea/workspace.xml&#10;#&#9;NewsStudyRostelecom/main/templates/main/sidebar.html&#10;#&#9;NewsStudyRostelecom/news/templates/news/news.html&#10;#&#9;NewsStudyRostelecom/news/templates/news/news_list.html&#10;#&#9;NewsStudyRostelecom/news/urls.py&#10;#&#9;NewsStudyRostelecom/news/views.py">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -209,7 +211,14 @@
       <option name="project" value="LOCAL" />
       <updated>1702510403013</updated>
     </task>
-    <option name="localTasksCounter" value="13" />
+    <task id="LOCAL-00013" summary="Merge remote-tracking branch 'origin/main'&#10;&#10;# Conflicts:&#10;#&#9;.idea/workspace.xml&#10;#&#9;NewsStudyRostelecom/main/templates/main/sidebar.html&#10;#&#9;NewsStudyRostelecom/news/templates/news/news.html&#10;#&#9;NewsStudyRostelecom/news/templates/news/news_list.html&#10;#&#9;NewsStudyRostelecom/news/urls.py&#10;#&#9;NewsStudyRostelecom/news/views.py">
+      <created>1702510826464</created>
+      <option name="number" value="00013" />
+      <option name="presentableId" value="LOCAL-00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1702510826464</updated>
+    </task>
+    <option name="localTasksCounter" value="14" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -243,6 +252,7 @@
     <MESSAGE value="Доработан мой аккаунт, финальная версия дз будет выложена около 20:00" />
     <MESSAGE value="Финальная верисия дз 1, более подробная информация в файле readme.txt" />
     <MESSAGE value="Версия дз 2 реализует большую часть требований, выполнена к сожалению на сколько успел и находится на доработке" />
-    <option name="LAST_COMMIT_MESSAGE" value="Версия дз 2 реализует большую часть требований, выполнена к сожалению на сколько успел и находится на доработке" />
+    <MESSAGE value="Merge remote-tracking branch 'origin/main'&#10;&#10;# Conflicts:&#10;#&#9;.idea/workspace.xml&#10;#&#9;NewsStudyRostelecom/main/templates/main/sidebar.html&#10;#&#9;NewsStudyRostelecom/news/templates/news/news.html&#10;#&#9;NewsStudyRostelecom/news/templates/news/news_list.html&#10;#&#9;NewsStudyRostelecom/news/urls.py&#10;#&#9;NewsStudyRostelecom/news/views.py" />
+    <option name="LAST_COMMIT_MESSAGE" value="Merge remote-tracking branch 'origin/main'&#10;&#10;# Conflicts:&#10;#&#9;.idea/workspace.xml&#10;#&#9;NewsStudyRostelecom/main/templates/main/sidebar.html&#10;#&#9;NewsStudyRostelecom/news/templates/news/news.html&#10;#&#9;NewsStudyRostelecom/news/templates/news/news_list.html&#10;#&#9;NewsStudyRostelecom/news/urls.py&#10;#&#9;NewsStudyRostelecom/news/views.py" />
   </component>
 </project>
