@@ -13,6 +13,29 @@
         integrity="sha384-Atwg2Pkwv9vp0ygtn1JAojH0nYbwNJLPhwyoVbhoPwBhjQPR5VtM2+xf0Uwh9KtT"
         crossorigin="anonymous"></script>
 
+<!-- jQuery !-->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"> </script>
+<!-- jQuery UI !-->
+<link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.4/themes/smoothness/jquery-ui.css">
+<script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.4/jquery-ui.min.js"></script>
+
+<script>
+  $(function() {
+    $("#search_input").autocomplete({
+      source: "{% url 'search_auto' %}",
+      select: function (event, ui) { //item selected
+        AutoCompleteSelectHandler(event, ui)
+      },
+      minLength: 2,
+    });
+  });
+
+  function AutoCompleteSelectHandler(event, ui)
+  {
+    var selectedObj = ui.item;
+  }
+</script>
+
 
 <!--Сделано на основе примеров боковых меню с этой страницы: https://getbootstrap.com/docs/5.0/examples/sidebars/#-->
 
@@ -59,9 +82,17 @@
         <li>
             <a href="#" {% if request.path == '/search/' %} class="link-active" aria-current="page" {% endif %}>
             <i class="fa fa-magnifying-glass menu-icon"></i>
-            <div class="d-none d-lg-block"> Поиск</div>
-
+            <div class="d-none d-lg-block"> Поиск новостей</div>
             </a>
+
+            <div class="d-none d-lg-block">
+                <form action="" method="get">
+                  <div class="search">
+                    <input type="text" name="q" id="search_input">
+                    <button type="submit" class="btn btn-primary">🔍︎</button>
+                  </div>
+                </form>
+            </div>
         </li>
         <li class="nav-item">
             <a href="/admin/" {% if request.path  == '/admin/' %} class="link-active" aria-current="page" {% endif %}>

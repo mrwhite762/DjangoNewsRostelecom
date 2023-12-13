@@ -106,3 +106,7 @@ body .single_news{
   }
 }
 // подробнее про hover-эффекты: https://www.w3schools.com/cssref/sel_hover.php
+
+.search {
+  width: 50vw;
+}

@@ -4,7 +4,8 @@ from . import views
 urlpatterns = [
     path('', views.news, name='news_index'),
     path('list/', views.index, name='news_list'),
-    path('search_auto/', views.search_auto, name='search_auto'),
+    # path('/news/list/search/', views.search_news, name='search_news'),
+    path('/news/list/search_auto/', views.search_auto, name='search_auto'),
     path('list/<int:pk>/', views.ArticleDetailView.as_view(), name='news_detail'),
     path('update/<int:pk>/', views.ArticleUpdateView.as_view(), name='news_update'),
     path('delete/<int:pk>/', views.ArticleDeleteView.as_view(), name='news_delete'),

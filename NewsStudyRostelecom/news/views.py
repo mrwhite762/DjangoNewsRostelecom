@@ -8,8 +8,13 @@ from .forms import *
 import json
 
 
+# def search_news(request):
+#     print('Функция')
+#     query = request.GET.get('q')
+
 #URL:    path('search_auto/', views.search_auto, name='search_auto'),
 def search_auto(request):
+    print('вызов функции')
     if request.headers.get('X-Requested-With') == 'XMLHttpRequest':
         q = request.GET.get('term','')
         articles = Article.objects.filter(title__icontains=q)
