@@ -4,14 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="01659525-c7d5-4527-bd53-d7984de640ad" name="Changes" comment="Версия дз 2 реализует большую часть требований, выполнена к сожалению на сколько успел и находится на доработке">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/NewsStudyRostelecom/main/static/main/css/style.css" beforeDir="false" afterPath="$PROJECT_DIR$/NewsStudyRostelecom/main/static/main/css/style.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/NewsStudyRostelecom/main/templates/main/sidebar.html" beforeDir="false" afterPath="$PROJECT_DIR$/NewsStudyRostelecom/main/templates/main/sidebar.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/NewsStudyRostelecom/news/templates/news/news_list.html" beforeDir="false" afterPath="$PROJECT_DIR$/NewsStudyRostelecom/news/templates/news/news_list.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/NewsStudyRostelecom/news/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/NewsStudyRostelecom/news/urls.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/NewsStudyRostelecom/news/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/NewsStudyRostelecom/news/views.py" afterDir="false" />
-    </list>
+    <list default="true" id="01659525-c7d5-4527-bd53-d7984de640ad" name="Changes" comment="Версия дз 2 реализует большую часть требований, выполнена к сожалению на сколько успел и находится на доработке" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -202,7 +195,14 @@
       <option name="project" value="LOCAL" />
       <updated>1702340672872</updated>
     </task>
-    <option name="localTasksCounter" value="11" />
+    <task id="LOCAL-00011" summary="Версия дз 2 реализует большую часть требований, выполнена к сожалению на сколько успел и находится на доработке">
+      <created>1702510123920</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1702510123920</updated>
+    </task>
+    <option name="localTasksCounter" value="12" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
