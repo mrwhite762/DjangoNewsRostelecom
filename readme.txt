@@ -4,6 +4,4 @@ User_check  Zxcv123!
 admin admin
 spuper_adm  Zxcv123!
 
-Если не отображатся новости через полный текст, возможно проблема с комитом,
-https://github.com/mrwhite762/DjangoNewsRostelecom/tree/ff6e6e4fea769a7966f04a040664088bb919e811
-По этому должно отображаться
+
