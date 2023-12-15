@@ -4,7 +4,7 @@ from .forms import *
 
 from django.contrib import messages
 from django.contrib.auth.forms import UserCreationForm
-from django.contrib.auth import authenticate
+from django.contrib.auth import authenticate, login
 from django.contrib.auth.models import Group
 
 
@@ -19,8 +19,8 @@ def registration(request):
 
             username = form.cleaned_data.get('username')
             password = form.cleaned_data.get('password1')
-
             authenticate(username=username,password=password)
+            login(request, user)
             messages.success(request,f'{username} был зарегистрирован!')
             return redirect('/')
     else:

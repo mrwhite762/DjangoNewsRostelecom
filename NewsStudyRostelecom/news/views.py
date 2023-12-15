@@ -16,9 +16,9 @@ import json
 def search_auto(request):
     print('вызов функции')
     if request.headers.get('X-Requested-With') == 'XMLHttpRequest':
-        q = request.GET.get('term','')
+        q = request.GET.get('term', '')
         articles = Article.objects.filter(title__icontains=q)
-        results =[]
+        results = []
         for a in articles:
             results.append(a.title)
         data = json.dumps(results)
