@@ -60,13 +60,13 @@
         <li class="nav-item">
             <a href="{% url 'news_index' %}" {% if request.resolver_match.view_name == 'news_index' %} class="link-active" aria-current="page" {% endif %}>
             <i class="fa fa-bars menu-icon"></i>
-            <div class="d-none d-lg-block">Все новости</div>
+            <div class="d-none d-lg-block">Новости будут</div>
             </a>
         </li>
         <li class="nav-item">
             <a href="{% url 'news_list' %}" {% if request.resolver_match.view_name == 'news_list' %} class="link-active" aria-current="page" {% endif %}>
             <i class="fa fa-bars menu-icon"></i>
-            <div class="d-none d-lg-block">Новости 2</div>
+            <div class="d-none d-lg-block">Основные новости</div>
             </a>
         </li>
         <!--                <li class="nav-item">-->
