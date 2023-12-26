@@ -30,7 +30,7 @@ SECRET_KEY = 'django-insecure-%2qdz_0vlve3dhbu0u_cxvfd#2mf4zs0m_wx9x)jm2p0r8mb9f
 #В режиме отладки такая:
 DEBUG = True
 ALLOWED_HOSTS = []
-
+#'proverym.pythonanywhere.com'
 
 # Application definition
 

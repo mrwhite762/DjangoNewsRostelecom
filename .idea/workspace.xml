@@ -4,28 +4,11 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="01659525-c7d5-4527-bd53-d7984de640ad" name="Changes" comment="Дз 2 сделано на сколько успел, в процессе доработки">
-      <change afterPath="$PROJECT_DIR$/NewsStudyRostelecom/news/utils.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/NewsStudyRostelecom/users/templates/users/edit_password.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/NewsStudyRostelecom/users/templates/users/edit_profile.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/NewsStudyRostelecom/users/templates/users/profile.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/NewsStudyRostelecom/users/templatetags/__init__.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/NewsStudyRostelecom/users/templatetags/users_extras.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/NewsStudyRostelecom/users/utils.py" afterDir="false" />
+    <list default="true" id="01659525-c7d5-4527-bd53-d7984de640ad" name="Changes" comment="Дз 3 сколько есть">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/NewsStudyRostelecom/NewsStudyRostelecom/settings.py" beforeDir="false" afterPath="$PROJECT_DIR$/NewsStudyRostelecom/NewsStudyRostelecom/settings.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/NewsStudyRostelecom/db.sqlite3" beforeDir="false" afterPath="$PROJECT_DIR$/NewsStudyRostelecom/db.sqlite3" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/NewsStudyRostelecom/main/templates/main/sidebar.html" beforeDir="false" afterPath="$PROJECT_DIR$/NewsStudyRostelecom/main/templates/main/sidebar.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/NewsStudyRostelecom/news/admin.py" beforeDir="false" afterPath="$PROJECT_DIR$/NewsStudyRostelecom/news/admin.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/NewsStudyRostelecom/news/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/NewsStudyRostelecom/news/models.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/NewsStudyRostelecom/news/templates/news/news_list.html" beforeDir="false" afterPath="$PROJECT_DIR$/NewsStudyRostelecom/news/templates/news/news_list.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/NewsStudyRostelecom/news/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/NewsStudyRostelecom/news/urls.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/NewsStudyRostelecom/news/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/NewsStudyRostelecom/news/views.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/NewsStudyRostelecom/users/admin.py" beforeDir="false" afterPath="$PROJECT_DIR$/NewsStudyRostelecom/users/admin.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/NewsStudyRostelecom/users/forms.py" beforeDir="false" afterPath="$PROJECT_DIR$/NewsStudyRostelecom/users/forms.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/NewsStudyRostelecom/users/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/NewsStudyRostelecom/users/models.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/NewsStudyRostelecom/users/templates/users/registration.html" beforeDir="false" afterPath="$PROJECT_DIR$/NewsStudyRostelecom/users/templates/users/registration.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/NewsStudyRostelecom/users/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/NewsStudyRostelecom/users/urls.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/NewsStudyRostelecom/users/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/NewsStudyRostelecom/users/views.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -273,7 +256,21 @@
       <option name="project" value="LOCAL" />
       <updated>1702674343335</updated>
     </task>
-    <option name="localTasksCounter" value="19" />
+    <task id="LOCAL-00019" summary="Дз 3 сколько есть">
+      <created>1703611992993</created>
+      <option name="number" value="00019" />
+      <option name="presentableId" value="LOCAL-00019" />
+      <option name="project" value="LOCAL" />
+      <updated>1703611992993</updated>
+    </task>
+    <task id="LOCAL-00020" summary="Дз 3 сколько есть">
+      <created>1703612019665</created>
+      <option name="number" value="00020" />
+      <option name="presentableId" value="LOCAL-00020" />
+      <option name="project" value="LOCAL" />
+      <updated>1703612019665</updated>
+    </task>
+    <option name="localTasksCounter" value="21" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -309,6 +306,7 @@
     <MESSAGE value="Версия дз 2 реализует большую часть требований, выполнена к сожалению на сколько успел и находится на доработке" />
     <MESSAGE value="Merge remote-tracking branch 'origin/main'&#10;&#10;# Conflicts:&#10;#&#9;.idea/workspace.xml&#10;#&#9;NewsStudyRostelecom/main/templates/main/sidebar.html&#10;#&#9;NewsStudyRostelecom/news/templates/news/news.html&#10;#&#9;NewsStudyRostelecom/news/templates/news/news_list.html&#10;#&#9;NewsStudyRostelecom/news/urls.py&#10;#&#9;NewsStudyRostelecom/news/views.py" />
     <MESSAGE value="Дз 2 сделано на сколько успел, в процессе доработки" />
-    <option name="LAST_COMMIT_MESSAGE" value="Дз 2 сделано на сколько успел, в процессе доработки" />
+    <MESSAGE value="Дз 3 сколько есть" />
+    <option name="LAST_COMMIT_MESSAGE" value="Дз 3 сколько есть" />
   </component>
 </project>
