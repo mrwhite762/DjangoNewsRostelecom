@@ -45,6 +45,9 @@ class Article(models.Model):
         else:
             return '(no image)'
 
+    def get_views(self):
+        return self.views.count()
+
     class Meta:
         ordering = ['title', 'date']
         verbose_name = 'Новость'
@@ -64,3 +67,15 @@ class Image(models.Model):
         else:
             return '(no image)'
 
+class ViewCount(models.Model):
+    article = models.ForeignKey(Article,on_delete=models.CASCADE,
+                                related_name='views')
+    ip_address = models.GenericIPAddressField()
+    view_date = models.DateTimeField(auto_now_add=True)
+
+    class Meta:
+        ordering=('-view_date',)
+        indexes = [models.Index(fields=['-view_date'])]
+
+    def __str__(self):
+        return self.article.title

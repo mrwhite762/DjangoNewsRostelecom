@@ -13,5 +13,6 @@ urlpatterns = [
     path('news_1/', views.news_1, name='news_1'),
     path('news_2/', views.news_2, name='news_2'),
     path('news_3/', views.news_3, name='news_3'),
-    path('create', views.create_article, name='create_article')
+    path('create', views.create_article, name='create_article'),
+    #path('pagination',views.pagination,name='pagination'),
 ]
