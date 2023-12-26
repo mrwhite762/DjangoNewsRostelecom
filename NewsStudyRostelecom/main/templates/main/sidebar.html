@@ -70,16 +70,6 @@
             <div class="d-none d-lg-block">Основные новости</div>
             </a>
         </li>
-        <!--                <li class="nav-item">-->
-        <!--                  <a href="/examples/" {% if request.path  == '/examples/' %} class="link-active" aria-current="page" {% endif %}>-->
-        <!--                        <i class="fa fa-hand menu-icon"></i>  <div class="d-none d-lg-block"> Примеры с урока</div>-->
-        <!--                    </a>-->
-        <!--              </li>-->
-        <!--              <li>-->
-        <!--                <a href="/home/" {% if request.path  == '/home/' %} class="link-active" aria-current="page" {% endif %}>-->
-        <!--                    <i class="fa fa-backward menu-icon""></i>  <div class="d-none d-lg-block">Адаптированный шаблон </div>-->
-        <!--                </a>-->
-        <!--              </li>-->
         <li>
             <a href="#" {% if request.path == '/search/' %} class="link-active" aria-current="page" {% endif %}>
             <i class="fa fa-magnifying-glass menu-icon"></i>
@@ -102,11 +92,11 @@
             </a>
         </li>
         {% if request.user|has_group:"Authors" %}
-        <li>
-            <a href="#" {% if request.path  == '/myarticles/' %} class="link-active" aria-current="page" {% endif %}>
-            <i class="fa fa-pen-nib menu-icon"></i>  <div class="d-none d-lg-block"> Мои статьи</div>
-            </a>
-        </li>
+              <li>
+                <a href="#" {% if request.path  == '/myarticles/' %} class="link-active" aria-current="page" {% endif %}>
+                    <i class="fa fa-pen-nib menu-icon"></i>  <div class="d-none d-lg-block"> Мои статьи</div>
+                </a>
+              </li>
         {% endif %}
 <!--        <li>-->
 <!--            <a href="#" {% if request.path  == '/myarticles/' %} class="link-active" aria-current="page" {% endif %}>-->
