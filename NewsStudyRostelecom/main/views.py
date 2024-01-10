@@ -87,3 +87,8 @@ def about(request):
 def custom_404(request, exception):
     # return render(request,'main/sidebar.html')
     return HttpResponse(f'Введен неверный запрос, или страница еще в разработке:{exception}')
+
+from django.views.decorators.csrf import csrf_exempt
+@csrf_exempt
+def update_server(request):
+    return HttpResponse('Хук работатет')
