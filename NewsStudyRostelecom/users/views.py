@@ -6,6 +6,8 @@ from django.contrib import messages
 from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth import authenticate, login
 from django.contrib.auth.models import Group
+from django.core.paginator import Paginator
+from django.contrib.auth.decorators import login_required
 
 
 
@@ -35,6 +37,8 @@ def registration(request):
         form = UserCreationForm()
     context = {'form':form}
     return render(request,'users/registration.html',context)
+
+
 def profile(request):
     context = dict()
     return render(request,'users/profile.html',context)
@@ -42,25 +46,31 @@ def profile(request):
 from .forms import AccountUpdateForm, UserUpdateForm
 from .utils import check_group
 
-@check_group('Authors')
+# @check_group('Authors')
+@login_required
 def profile_update(request):
     user = request.user
     account = Account.objects.get(user=user)
     if request.method == "POST":
         user_form = UserUpdateForm(request.POST, instance=user)
         account_form = AccountUpdateForm(request.POST, request.FILES, instance=account)
+        context = {'account_form': AccountUpdateForm(instance=account),
+                   'user_form': UserUpdateForm(instance=user)}
         if user_form.is_valid() and account_form.is_valid():
             user_form.save()
             account_form.save()
             messages.success(request,"Профиль успешно обновлен")
             return redirect('profile')
         else:
-            pass
+            error_dict = dict(account_form.errors)
+            error_dict.update(dict(user_form.errors))
+            messages.warning(request, error_dict)
     else:
         context = {'account_form':AccountUpdateForm(instance=account),
                    'user_form':UserUpdateForm(instance=user)}
     return render(request,'users/edit_profile.html',context)
 
+@login_required
 def password_update(request):
     user = request.user
     form = PasswordChangeForm(user,request.POST)
@@ -115,4 +125,57 @@ def add_to_favorites(request, id):
     return HttpResponseRedirect(request.META['HTTP_REFERER'])
 
 
+@login_required
+def my_favorits(request):
+    categories = Article.categories  # создали перечень категорий
+    author_list = User.objects.all()
+    bookmarks_news = FavoriteArticle.objects.filter(user=request.user.id).values('article_id')
+    news = Article.objects.filter(id__in=bookmarks_news)
+    if request.method == "POST":
+        selected_author = int(request.POST.get('author_filter'))
+        selected_category = int(request.POST.get('category_filter'))
+        request.session['selected_author'] = selected_author
+        request.session['selected_category'] = selected_category
+        if selected_author == 0:  # выбраны все авторы
+            news = news.all().order_by('-date')
+        else:
+            news = news.filter(author=selected_author)
+        if selected_category != 0:  # фильтруем найденные по авторам результаты по категориям
+            news = news.filter(category__icontains=categories[selected_category - 1][0])
+    else:  # если страница открывется
+        selected_author = request.session.get('selected_author')
+        print(selected_author)
+        if selected_author != None and selected_author != 0:  # если не пустое - находим нужные новости
+            news = news.filter(author=selected_author)
+        selected_category = request.session.get('selected_category')
+        print(selected_category)
+        if selected_category != None and selected_category != 0:  # если не пустое - находим нужные ноновсти
+            news = news.filter(category__icontains=categories[selected_category - 1][0])
+    total = len(news)
+    p = Paginator(news, 5)
+    page_number = request.GET.get('page')
+    page_obj = p.get_page(page_number)
+    context = {'news': page_obj, 'total': total, 'selected_author': selected_author,
+               'categories': categories, 'selected_category': selected_category, 'author_list': author_list}
+    return render(request, 'users/my_favorits.html', context)
 
+@login_required
+def my_news_list(request):
+    categories = Article.categories  # создали перечень категорий
+    news = Article.objects.filter(author=request.user.id)
+    if request.method == "POST":
+        selected_category = int(request.POST.get('category_filter'))
+        request.session['selected_category'] = selected_category
+        if selected_category != 0:  # фильтруем найденные по авторам результаты по категориям
+            news = news.filter(category__icontains=categories[selected_category - 1][0])
+    else:  # если страница открывется
+        selected_category = request.session.get('selected_category')
+        if selected_category != None and selected_category != 0:  # если не пустое - находим нужные ноновсти
+            news = news.filter(category__icontains=categories[selected_category - 1][0])
+    total = len(news)
+    p = Paginator(news, 5)
+    page_number = request.GET.get('page')
+    page_obj = p.get_page(page_number)
+    context = {'news': page_obj, 'total': total,
+               'categories': categories, 'selected_category': selected_category}
+    return render(request, 'users/my_news_list.html', context)

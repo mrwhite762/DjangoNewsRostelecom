@@ -1,6 +1,7 @@
 from django.db import models
 from django.utils.safestring import mark_safe
 from django.contrib.auth.models import User
+from django.core.validators import MinLengthValidator
 
 class Tag(models.Model):
     title = models.CharField(max_length=80)
@@ -17,9 +18,9 @@ class Article(models.Model):
                   ('S', 'Science'),
                   ('IT', 'IT'))
     author = models.ForeignKey(User, on_delete=models.SET_NULL, null=True)
-    title = models.CharField('Название', max_length=50, default='')
-    anouncement = models.TextField('Аннотация', max_length=250)
-    text = models.TextField('Текст новости')
+    title = models.CharField('Название', max_length=50, default='', validators=[MinLengthValidator(2)])
+    anouncement = models.TextField('Аннотация', max_length=250, validators=[MinLengthValidator(10)])
+    text = models.TextField('Текст новости', validators=[MinLengthValidator(100)])
     date = models.DateTimeField('Дата публикации', auto_now=True)
     category = models.CharField(choices=categories, max_length=20, verbose_name='Категории')
     tags = models.ManyToManyField(to=Tag, blank=True)

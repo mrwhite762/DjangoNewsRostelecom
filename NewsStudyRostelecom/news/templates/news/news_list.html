@@ -1,7 +1,6 @@
 {% extends 'main/base_template.html' %}
 {% load static %}
-{% load bootstrap5 %}
-{% load i18n %}
+{% load bootstrap5 %}}
 {% block title %} {{ title }} {% endblock %}
 
 {% block content %}
@@ -27,6 +26,7 @@
                                 </option>
                                 {% endfor %}
                             </select>
+                            <br>
                             <input type="submit" class="btn btn-success" value="Применить">
                         </div>
             </form>
@@ -55,6 +55,7 @@
         </nav>
     </div>
     {% endif %}
+
     <div class="row">
         {% for article in articles %}
             <div class="single_news">

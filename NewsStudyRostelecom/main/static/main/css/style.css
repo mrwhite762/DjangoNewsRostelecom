@@ -3,7 +3,7 @@ body{
 }
 aside{  /* стиль боковой панели навигации */
     float: left; /* позиция - слева */
-    background: #212529;/* цвет фона*/
+    background: #808080;/* цвет фона 212529*/
     max-width: 25%; /*ширина в % от экрана, можно указать в px */
     padding: 1%; /*отступы */
     height: 100vh; /* высота боковой панели - 100% от видимой высоты экрана*/
@@ -38,7 +38,7 @@ span.logo{
 }
 aside{
     padding: 35px 25px;
-    background: #212529;
+    background: #808080;
     width: 100%;  /*width: 75%;*/
 }
 aside a{

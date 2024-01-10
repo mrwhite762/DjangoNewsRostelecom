@@ -13,19 +13,19 @@ import json
 #     query = request.GET.get('q')
 
 #URL:    path('search_auto/', views.search_auto, name='search_auto'),
-def search_auto(request):
-    print('вызов функции')
-    if request.headers.get('X-Requested-With') == 'XMLHttpRequest':
-        q = request.GET.get('term', '')
-        articles = Article.objects.filter(title__icontains=q)
-        results = []
-        for a in articles:
-            results.append(a.title)
-        data = json.dumps(results)
-    else:
-        data = 'fail'
-    mimetype = 'application/json'
-    return HttpResponse(data,mimetype)
+# def search_auto(request):
+#     print('вызов функции')
+#     if request.headers.get('X-Requested-With') == 'XMLHttpRequest':
+#         q = request.GET.get('term', '')
+#         articles = Article.objects.filter(title__icontains=q)
+#         results = []
+#         for a in articles:
+#             results.append(a.title)
+#         data = json.dumps(results)
+#     else:
+#         data = 'fail'
+#     mimetype = 'application/json'
+#     return HttpResponse(data,mimetype)
 
 from .utils import ViewCountMixin
 #!!!!!можно про миксиин записи просмотра статьи. проговорить в какой моменгт он вызывается
@@ -54,8 +54,8 @@ class ArticleDeleteView(DeleteView):
 
 from users.utils import check_group #импортировли декоратор
 from django.conf import settings # Человек не аутентифицирован - отправляем на другую страницу
+@check_group('Authors')
 @login_required(login_url=settings.LOGIN_URL)
-@check_group('Authors') #пример использования декоратора
 def create_article(request):
     if request.method == 'POST':
         form = ArticleForm(request.POST, request.FILES)
@@ -72,6 +72,8 @@ def create_article(request):
     else:
         form = ArticleForm()
     return render(request,'news/create_article.html', {'form':form})
+
+
 
 def news(request):
     return render(request,'news/news.html')
@@ -116,8 +118,8 @@ def index(request):
     if request.method == "POST":
         selected_author = int(request.POST.get('author_filter'))
         selected_category = int(request.POST.get('category_filter'))
-        request.session['selected_author'] = selected_author
-        request.session['selected_category'] = selected_category
+        request.session['author_filter'] = selected_author
+        request.session['category_filter'] = selected_category
         if selected_author == 0: #выбраны все авторы
             articles = Article.objects.all()
         else:
@@ -125,23 +127,26 @@ def index(request):
         if selected_category != 0: #фильтруем найденные по авторам результаты по категориям
             articles = articles.filter(category__icontains=categories[selected_category-1][0])
     else: #если страница открывется впервые или нас переадресовала сюда функция поиск
-        selected_author = request.session.get('selected_author')
-        if selected_author != None: #если не пустое - находим нужные ноновсти
-            articles = Article.objects.filter(author=selected_author)
-        else:
-            selected_author = 0
-        selected_category = 0
-        value = request.session.get('search_input') #вытаскиваем из сессии значение поиска
+        value = request.session.get('search_input')  # вытаскиваем из сессии значение поиска
         if value != None: #если не пустое - находим нужные ноновсти
             articles = Article.objects.filter(title__icontains=value)
-            del request.session['search_input'] #чистим сессию, чтобы этот фильтр не "заело"
+            # del request.session['search_input'] #чистим сессию, чтобы этот фильтр не "заело"
         else:
-            #если не оказалось таокго ключика или запрос был кривой - отображаем все элементы
+            selected_author = request.session.get('author_filter')
+            selected_category = request.session.get('category_filter')
             articles = Article.objects.all()
+            if selected_author != None and int(selected_author) != 0:  # если не пустое - находим нужные ноновсти
+                articles = articles.filter(author=selected_author)
+            else:
+                selected_author = 0
+            if selected_category != None and int(selected_category) != 0:
+                articles = articles.filter(category__icontains=categories[selected_category-1][0])
+            else:
+                selected_category = 0
     #сортировка от свежих к старым новостям
     articles=articles.order_by('-date')
     total = len(articles)
-    p = Paginator(articles,2)
+    p = Paginator(articles,5)
     page_number = request.GET.get('page')
     page_obj = p.get_page(page_number)
     title = _('Заголовок страницы новости-индекс')
@@ -154,42 +159,55 @@ def index(request):
 
     return render(request,'news/news_list.html',context)
 
+def news_search(request):
+    news = {}
+    if request.method == 'POST':
+        print(request.POST)
+        news = Article.objects.filter(title=request.POST.get('search_input')).order_by('date')
+    context = {'news': news}
+    return render(request, 'news/news_search.html', context)
+
+def search_auto(request):
+    news = {}
+    if request.headers.get('X-Requested-With') == 'XMLHttpRequest':
+        q = request.GET.get('term', '')
+        news = Article.objects.filter(title__icontains=q)
+        results = []
+        for n in news:
+            results.append(n.title)
+        data = json.dumps(results)
+    else:
+        data = 'fail'
+    mimetype = 'application/json'
+    return HttpResponse(data, mimetype)
 
 
-# def news_list(request):
-    # article = Article.objects.all().first()
-    # print('Автор новости', article.title, ':', article.author.account.gender)
-    # context = {'article': article}
-    # Пол автора новости
-    # articles = Article.objects.filter(author=request.user.id)
-    # print(articles)
-    # context = {'article': articles}
-    # Поиск статей по автору
-    # articles = Article.objects.get(author=2)
-    # print(articles.tags.all())
-    # Поиск тегов по автору
-    # article = Article.objects.filter(title__contains='Новость')
-    # print(article)
-    # for t in article.tags.all():
-    #     print(t.title)
+# def index(request):
+#     categories = Article.categories #создали перечень категорий
+#     author_list = User.objects.all() #создали перечень авторов
+#     if request.method == "POST":
+#         selected_author = int(request.POST.get('author_filter'))
+#         selected_category = int(request.POST.get('category_filter'))
+#         request.session['selected_author'] = selected_author
+#         request.session['selected_category'] = selected_category
+#         if selected_author == 0: #выбраны все авторы
+#             articles = Article.objects.all()
+#         else:
+#             articles = Article.objects.filter(author=selected_author)
+#         if selected_category != 0: #фильтруем найденные по авторам результаты по категориям
+#             articles = articles.filter(category__icontains=categories[selected_category-1][0])
+#     else: #если страница открывется впервые или нас переадресовала сюда функция поиск
+#         selected_author = request.session.get('selected_author')
+#         if selected_author != None: #если не пустое - находим нужные ноновсти
+#             articles = Article.objects.filter(author=selected_author)
+#         else:
+#             selected_author = 0
+#         selected_category = 0
+#         value = request.session.get('search_input') #вытаскиваем из сессии значение поиска
+#         if value != None: #если не пустое - находим нужные ноновсти
+#             articles = Article.objects.filter(title__icontains=value)
+#             del request.session['search_input'] #чистим сессию, чтобы этот фильтр не "заело"
+#         else:
+#             #если не оказалось таокго ключика или запрос был кривой - отображаем все элементы
+#             articles = Article.objects.all()
 
-    # user_list = User.objects.all()
-    # for user in user_list:
-    #     print(Article.objects.filter(author=user))
-    # print(user_list)
-    # Список юзеров у которых есть новости, после печатаем все новости у всех юзеров
-
-    # print(article.tags.all())
-    # tag = Tag.objects.filter(title='General_IT').first()
-    # tagged_news = Article.objects.filter(tags=tag)
-    # print(tagged_news)
-    # Поиск новостей по тегам
-
-    # article = Article.objects.all()
-    # context = {'article': article}
-    # return render(request,'news/news_list.html', context)
-
-
-# def news_detail(request, id):
-#     article = Article.objects.filter(id=id)[0]
-#     return HttpResponse(f'<h1>{article.title}</h1>')

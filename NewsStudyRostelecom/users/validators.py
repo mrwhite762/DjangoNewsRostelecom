@@ -1,5 +1,6 @@
 from django.core.validators import ValidationError
 from django.utils.translation import gettext_lazy as _
+import re
 
 def russian_email(email):
     allowed_domains = ['@mail.ru',

@@ -1,0 +1,70 @@
+{% extends 'main/base_template.html' %}
+{% load static %}
+{% load bootstrap5 %}
+
+{% block content %}
+
+<h1 class="text-center">Мои новости</h1>
+<br>
+<div class="text-center">
+    <label><h3> Фильтры: (Всего :{{ total }} результатов) </h3>
+        <form method="post">
+            {% csrf_token %}
+            <div class="form-group col-11">
+                <select class="form-select" name="category_filter">
+                    <option value="0">Все категории</option>
+                    {% for c in categories %}
+                    <option value="{{ forloop.counter }}" {% if selected_category == forloop.counter %} selected {% endif %}>
+                        {{ c.1 }}
+                    </option>
+                    {% endfor %}
+                </select>
+                <br>
+                <br>
+                <input type="submit" class="btn btn-outline-success" value="Применить">
+            </div>
+        </form>
+    </label>
+</div>
+<br>
+<!--    ниже пагинатор -->
+{% if total > 1 %}
+<div class="row">
+    <nav aria-label="Page navigation example">
+        <ul class="pagination">
+            {% if news.has_previous %}
+            <li class="page-item"><a class="page-link" href="?page={{ news.previous_page_number }}">Previous</a></li>
+            {% endif %}
+            {% for p in news.paginator.page_range %}
+            {% if news.number == p %}
+            <li class="page-item"><p class="page-link" style="color:black;"> {{ p }}</p></li>
+            {% else %}
+            <li class="page-item"><a class="page-link" href="?page={{ p }}"> {{ p }}</a></li>
+            {% endif %}
+            {% endfor %}
+            {% if news.has_next %}
+            <li class="page-item"><a class="page-link" href="?page={{ news.next_page_number }}">Next</a></li>
+            {% endif %}
+        </ul>
+    </nav>
+</div>
+{% endif %}
+{% for n in news %}
+<div>
+    <p><a href="{{n.get_absolute_url}}">{{ n.title }} </a></p>
+    <p> Анонс {{ n.anouncement }}</p>
+    <p> Дата {{ n.date }}</p>
+    <p> Автор {{ n.author.username }}</p>
+    <p><small>Просмотры: {{ n.get_views }}</small></p>
+    <br>
+    <a class="btn btn-success" href="{% url 'favorites' n.pk %}"><i class="fa fa-bookmark"> В избранное</i></a>
+    <br>
+    <br>
+    <a class="btn btn-danger" href="{% url 'news_delete' n.pk %}"><i class="fa fa-bookmark"> Удалить</i></a>
+    <hr>
+</div>
+
+{% endfor %}
+
+
+{% endblock content %}

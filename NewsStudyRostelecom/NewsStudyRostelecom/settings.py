@@ -11,6 +11,7 @@ https://docs.djangoproject.com/en/4.2/ref/settings/
 """
 
 from pathlib import Path
+import os
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -25,11 +26,11 @@ SECRET_KEY = 'django-insecure-%2qdz_0vlve3dhbu0u_cxvfd#2mf4zs0m_wx9x)jm2p0r8mb9f
 # SECURITY WARNING: don't run with debug turned on in production!
 
 # #Для проверки своей страницы 404, конфигурация такая:
-# DEBUG = False
-# ALLOWED_HOSTS = ["*"]
+DEBUG = False
+ALLOWED_HOSTS = ["*"]
 #В режиме отладки такая:
-DEBUG = True
-ALLOWED_HOSTS = []
+# DEBUG = True
+# ALLOWED_HOSTS = []
 #'proverym.pythonanywhere.com'
 
 # Application definition
@@ -130,14 +131,15 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/4.2/howto/static-files/
 
 STATIC_URL = 'static/'
-STATICFILES_DIRS = [
-    BASE_DIR / "home/static/",
-    # "home/static/",
-    # "static",
-]
-import os
+STATIC_ROOT = os.path.join(BASE_DIR, 'main/static')
 MEDIA_URL = 'media/'
-MEDIA_ROOT = os.path.join(BASE_DIR,'media')
+MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
+STATICFILES_DIRS = [
+    BASE_DIR / "static",
+    "/main/static/",
+    "/news/static/",
+]
+
 # Default primary key field type
 # https://docs.djangoproject.com/en/4.2/ref/settings/#default-auto-field
 

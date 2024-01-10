@@ -71,20 +71,12 @@
             </a>
         </li>
         <li>
-            <a href="#" {% if request.path == '/search/' %} class="link-active" aria-current="page" {% endif %}>
+            <a href="{% url 'news_search' %}" {% if request.path == '/search/' %} class="link-active" aria-current="page" {% endif %}>
             <i class="fa fa-magnifying-glass menu-icon"></i>
             <div class="d-none d-lg-block"> Поиск новостей</div>
             </a>
-
-            <div class="d-none d-lg-block">
-                <form action="" method="get">
-                  <div class="search">
-                    <input type="text" name="q" id="search_input">
-                    <button type="submit" class="btn btn-primary">🔍︎</button>
-                  </div>
-                </form>
-            </div>
         </li>
+
         <li class="nav-item">
             <a href="/admin/" {% if request.path  == '/admin/' %} class="link-active" aria-current="page" {% endif %}>
             <i class="fa fa-user menu-icon {% if request.path  == '/admin/' %} link-active {% endif %}" ></i>
@@ -93,16 +85,11 @@
         </li>
         {% if request.user|has_group:"Authors" %}
               <li>
-                <a href="#" {% if request.path  == '/myarticles/' %} class="link-active" aria-current="page" {% endif %}>
+                <a href="{% url 'my_news_list' %}" {% if request.path  == '/myarticles/' %} class="link-active" aria-current="page" {% endif %}>
                     <i class="fa fa-pen-nib menu-icon"></i>  <div class="d-none d-lg-block"> Мои статьи</div>
                 </a>
               </li>
         {% endif %}
-<!--        <li>-->
-<!--            <a href="#" {% if request.path  == '/myarticles/' %} class="link-active" aria-current="page" {% endif %}>-->
-<!--            <i class="fa fa-newspaper menu-icon"></i>  <div class="d-none d-lg-block"> Избранное</div>-->
-<!--            </a>-->
-<!--        </li>-->
 
         <li>
             <a href="{% url 'about' %}" {% if request.resolver_match.view_name == '/about/' %} class="link-active" aria-current="page" {% endif %}>
@@ -116,12 +103,13 @@
     {% if request.user.id %}  <!-- проверяем аутентификацию-->
     <div class="dropdown">
         <button class="btn btn-primary dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown"
-                aria-expanded="false" style="background:#212529;">
+                aria-expanded="false" style="background:#FFA500;">
             <img src="{{ request.user.account.account_image.url }}" alt="" width="25" height="25" class="rounded-circle me-2">
             <div class="d-none d-lg-block"> {{ request.user.username }} </div>
         </button>
         <ul class="dropdown-menu " aria-labelledby="dropdownMenuButton1">
             <li><a class="dropdown-item" href="{% url 'create_article' %}"> Создать статью</a></li>
+            <li><a class="dropdown-item" href="{% url 'my_favorits' %}"> Избранное </a></li>
 <!--            <li><a class="dropdown-item" href="{% url 'user_account' %}"> Мой аккаунт</a></li>-->
             <li><a class="dropdown-item" href="{% url 'profile' %}"> Мой профиль</a></li>
             <li><hr class="dropdown-divider"></li>
