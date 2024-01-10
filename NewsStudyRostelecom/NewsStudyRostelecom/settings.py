@@ -26,11 +26,11 @@ SECRET_KEY = 'django-insecure-%2qdz_0vlve3dhbu0u_cxvfd#2mf4zs0m_wx9x)jm2p0r8mb9f
 # SECURITY WARNING: don't run with debug turned on in production!
 
 # #Для проверки своей страницы 404, конфигурация такая:
-DEBUG = False
-ALLOWED_HOSTS = ["*"]
+# DEBUG = False
+# ALLOWED_HOSTS = ["*"]
 #В режиме отладки такая:
-# DEBUG = True
-# ALLOWED_HOSTS = []
+DEBUG = True
+ALLOWED_HOSTS = ['demouserrostelecom.pythonanywhere.com','localhost','127.0.0.1']
 #'proverym.pythonanywhere.com'
 
 # Application definition
